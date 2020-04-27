@@ -9,19 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @ObservedObject var obs = iTunesObserver()
+    
     var body: some View {
         List {
             VStack {
-                Text("\(self.obs.results.count)")
-                ForEach(self.obs.results, id: \.self) { i in
-                    Text("\(i.trackName)")
+                if self.obs.results.count != 0 {
+                    ForEach(self.obs.results, id: \.self) { i in
+                       PlayerListItemView(item: i)
+                    }
                 }
             }
-        }
         .onAppear {
-                self.obs.search(query: "jack johnson")
+            self.obs.search(query: "jack johnson")
         }
+    }
     }
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46523011F577A4CC6246117E /* Pods_MusicAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A904B7442D11CC19B49F659 /* Pods_MusicAppTests.framework */; };
 		936FCAA6F0D7B8484E66B695 /* Pods_MusicApp_MusicAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA654F335ED5807F37B5CEB2 /* Pods_MusicApp_MusicAppUITests.framework */; };
+		CA1C22CA2457632A000CE6F9 /* PlayerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */; };
 		CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25724244B8EC40018DEF0 /* AppDelegate.swift */; };
 		CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */; };
 		CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25728244B8EC40018DEF0 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 		CAF25747244B8EC80018DEF0 /* MusicAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25746244B8EC80018DEF0 /* MusicAppUITests.swift */; };
 		CAF25755244B8FE10018DEF0 /* iTunesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */; };
 		CAF25757244B934E0018DEF0 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25756244B934E0018DEF0 /* Structs.swift */; };
+		CAF25759244F359D0018DEF0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25758244F359D0018DEF0 /* Player.swift */; };
 		D1559F43259AFB2627FE611D /* Pods_MusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0323510B5A601355457295B /* Pods_MusicApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,7 @@
 		6F9CB06C2ADC8AE9A348AE05 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A620103B22B2D26D3C2B98CC /* Pods-MusicAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicAppTests/Pods-MusicAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA654F335ED5807F37B5CEB2 /* Pods_MusicApp_MusicAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp_MusicAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListItemView.swift; sourceTree = "<group>"; };
 		CAF25721244B8EC40018DEF0 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF25724244B8EC40018DEF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		CAF25748244B8EC80018DEF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesObserver.swift; sourceTree = "<group>"; };
 		CAF25756244B934E0018DEF0 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		CAF25758244F359D0018DEF0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E65B337E41C70F8E7D1ACCA5 /* Pods-MusicApp-MusicAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp-MusicAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp-MusicAppUITests/Pods-MusicApp-MusicAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0323510B5A601355457295B /* Pods_MusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2338D079938D03C33269CF7 /* Pods-MusicAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppTests.release.xcconfig"; path = "Target Support Files/Pods-MusicAppTests/Pods-MusicAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				CAF2572C244B8EC80018DEF0 /* Preview Content */,
 				CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */,
 				CAF25756244B934E0018DEF0 /* Structs.swift */,
+				CAF25758244F359D0018DEF0 /* Player.swift */,
+				CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -425,6 +431,8 @@
 				CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */,
 				CAF25757244B934E0018DEF0 /* Structs.swift in Sources */,
 				CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */,
+				CA1C22CA2457632A000CE6F9 /* PlayerListItemView.swift in Sources */,
+				CAF25759244F359D0018DEF0 /* Player.swift in Sources */,
 				CAF25755244B8FE10018DEF0 /* iTunesObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

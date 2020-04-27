@@ -25,7 +25,7 @@ class iTunesObserver: ObservableObject {
                 newQuery.append(q)
             }
         }
-        var url = baseUrl + "search?term=" + newQuery
+        let url = baseUrl + "search?term=" + newQuery
         AF.request(url, method: .get).responseJSON { (data) in
             let json = try! JSON(data: data.data!)
             let results_ = json["results"]
@@ -62,7 +62,6 @@ class iTunesObserver: ObservableObject {
                                       trackExplicitness: i.1["trackExplicitness"].stringValue)
                 )
             }
-            print(self.results.count)
         }
     }
 }

@@ -15,15 +15,16 @@ struct ContentView: View {
     var body: some View {
         List {
             VStack {
+                TextField("Search...", text: self.$obs.query)
                 if self.obs.results.count != 0 {
                     ForEach(self.obs.results, id: \.self) { i in
                        PlayerListItemView(item: i)
                     }
                 }
             }
-        .onAppear {
-            self.obs.search(query: "jack johnson")
-        }
+//        .onAppear {
+//            self.obs.search(query: "jack johnson")
+//        }
     }
     }
 }

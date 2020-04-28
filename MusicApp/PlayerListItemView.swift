@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PlayerListItemView: View {
     
@@ -23,11 +24,19 @@ struct PlayerListItemView: View {
     var body: some View {
         HStack {
             
-            Image("album")
-                .resizable()
-                .frame(width: 50, height: 50)
-                .cornerRadius(20)
-                .padding()
+            ZStack {
+                Image("album")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(20)
+                    .padding()
+                
+                WebImage(url: URL(string: self.item.artworkUrl60))
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(20)
+                    .padding()
+            }
             
             VStack {
                 HStack {
@@ -46,7 +55,7 @@ struct PlayerListItemView: View {
             
             Spacer()
             
-            Text("\(self.item.trackTimeMillis / 60000):\(self.item.trackTimeMillis / 1000)")
+            Text("\(self.item.trackTimeMillis / 60000):\(self.item.trackTimeMillis / 1000 - Int(self.item.trackTimeMillis / 60000)*60)")
                 .font(.system(size: 15))
             .padding()
             

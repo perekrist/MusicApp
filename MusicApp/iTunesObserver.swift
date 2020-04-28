@@ -12,11 +12,21 @@ import SwiftyJSON
 
 class iTunesObserver: ObservableObject {
     
+    private var timer: Timer?
     let baseUrl = "https://itunes.apple.com/"
     
     @Published var results: [Result] = [Result]()
+    @Published var query = ""  {
+        didSet {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
+                self.search(query: self.query)
+            })
+        }
+    }
     
     func search(query: String) {
+        results.removeAll()
         var newQuery = ""
         for q in query {
             if q == " " {

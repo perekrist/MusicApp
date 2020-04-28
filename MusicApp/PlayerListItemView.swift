@@ -15,10 +15,9 @@ struct PlayerListItemView: View {
     @State var isPlaying = false
     var player: Player
     
-    init(item: Result) {
+    init(item: Result, player: Player) {
         self.item = item
-        player = Player(url: item.previewUrl)
-        
+        self.player = player
     }
     
     var body: some View {
@@ -27,21 +26,22 @@ struct PlayerListItemView: View {
             ZStack {
                 Image("album")
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 60, height: 60)
                     .cornerRadius(20)
-                    .padding()
+                    .padding(10)
                 
                 WebImage(url: URL(string: self.item.artworkUrl60))
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 60, height: 60)
                     .cornerRadius(20)
-                    .padding()
+                    .padding(10)
             }
             
             VStack {
                 HStack {
                     Text(self.item.trackName)
-                        .font(.title)
+                        .font(.callout)
+                        .lineLimit(2)
                     Spacer()
                 }
                 
@@ -63,7 +63,7 @@ struct PlayerListItemView: View {
             self.isPlaying.toggle()
             
             if self.isPlaying {
-                self.player.start()
+                self.player.start(url: self.item.previewUrl)
             } else {
                 self.player.stop()
             }
@@ -74,7 +74,7 @@ struct PlayerListItemView: View {
 
 struct PlayerListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerListItemView(item: Result(discNumber: 0, trackCount: 0, collectionCensoredName: "", artistViewUrl: "", currency: "", collectionExplicitness: "", trackId: 0, trackNumber: 0, trackPrice: 0, trackViewUrl: "", isStreamable: true, primaryGenreName: "Jazz", artworkUrl100: "", country: "USA", trackName: "Track Name", artistId: 0, wrapperType: "", collectionPrice: 0, artworkUrl60: "", releaseDate: "", trackCensoredName: "", trackTimeMillis: 0, collectionId: 0, artistName: "Jack Jonson", discCount: 0, collectionName: "", previewUrl: "", artworkUrl30: "", kind: "", trackExplicitness: ""))
+        PlayerListItemView(item: Result(discNumber: 0, trackCount: 0, collectionCensoredName: "", artistViewUrl: "", currency: "", collectionExplicitness: "", trackId: 0, trackNumber: 0, trackPrice: 0, trackViewUrl: "", isStreamable: true, primaryGenreName: "Jazz", artworkUrl100: "", country: "USA", trackName: "Track Name", artistId: 0, wrapperType: "", collectionPrice: 0, artworkUrl60: "", releaseDate: "", trackCensoredName: "", trackTimeMillis: 0, collectionId: 0, artistName: "Jack Jonson", discCount: 0, collectionName: "", previewUrl: "", artworkUrl30: "", kind: "", trackExplicitness: ""), player: Player())
             .previewLayout(.sizeThatFits)
     }
 }

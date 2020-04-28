@@ -11,6 +11,10 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var obs = iTunesObserver()
+    var player = Player()
+    
+    @State var isPlaying = false
+    var item: Result?
     
     var body: some View {
         List {
@@ -18,14 +22,12 @@ struct ContentView: View {
                 TextField("Search...", text: self.$obs.query)
                 if self.obs.results.count != 0 {
                     ForEach(self.obs.results, id: \.self) { i in
-                       PlayerListItemView(item: i)
+                        PlayerListItemView(item: i, player: self.player)
                     }
                 }
             }
-//        .onAppear {
-//            self.obs.search(query: "jack johnson")
-//        }
-    }
+        }
+        
     }
 }
 

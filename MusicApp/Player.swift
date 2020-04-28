@@ -12,19 +12,17 @@ import AVFoundation
 class Player {
     
     var player: AVPlayer?
-    var url: String
     
-    init(url: String) {
-        self.url = url
-    }
+    var isPlaying = false
     
-    func start() {
+    func start(url: String) {
         let Url = URL(string: url)
         print("play")
         
         do {
             player = try AVPlayer(url: Url!)
             player?.play()
+            isPlaying = true
         } catch let error as NSError{
             print(error.localizedDescription)
         } catch {
@@ -35,6 +33,7 @@ class Player {
     func stop(){
         print("stop")
         player?.pause()
+        isPlaying = false
     }
 }
 

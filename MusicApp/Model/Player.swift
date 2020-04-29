@@ -14,10 +14,11 @@ class Player {
     var player: AVPlayer?
     
     var isPlaying = false
+    var url_ = ""
     
     func start(url: String) {
+        url_ = url
         let Url = URL(string: url)
-        print("play")
         
         do {
             player = try AVPlayer(url: Url!)
@@ -31,7 +32,6 @@ class Player {
     }
     
     func stop(){
-        print("stop")
         player?.pause()
         isPlaying = false
     }

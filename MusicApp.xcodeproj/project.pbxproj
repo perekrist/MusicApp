@@ -10,7 +10,10 @@
 		46523011F577A4CC6246117E /* Pods_MusicAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A904B7442D11CC19B49F659 /* Pods_MusicAppTests.framework */; };
 		936FCAA6F0D7B8484E66B695 /* Pods_MusicApp_MusicAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA654F335ED5807F37B5CEB2 /* Pods_MusicApp_MusicAppUITests.framework */; };
 		CA1C22CA2457632A000CE6F9 /* PlayerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */; };
-		CA1C22CC2457F681000CE6F9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22CB2457F681000CE6F9 /* PlayerView.swift */; };
+		CA1C22CE2457FF65000CE6F9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22CD2457FF65000CE6F9 /* SearchView.swift */; };
+		CA1C22D324593B47000CE6F9 /* PlayerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22D224593B47000CE6F9 /* PlayerItemView.swift */; };
+		CA1C22D5245977AC000CE6F9 /* ListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22D4245977AC000CE6F9 /* ListItemViewModel.swift */; };
+		CA1C22D724597855000CE6F9 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C22D624597855000CE6F9 /* ItemViewModel.swift */; };
 		CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25724244B8EC40018DEF0 /* AppDelegate.swift */; };
 		CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */; };
 		CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25728244B8EC40018DEF0 /* ContentView.swift */; };
@@ -49,7 +52,10 @@
 		A620103B22B2D26D3C2B98CC /* Pods-MusicAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicAppTests/Pods-MusicAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA654F335ED5807F37B5CEB2 /* Pods_MusicApp_MusicAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp_MusicAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListItemView.swift; sourceTree = "<group>"; };
-		CA1C22CB2457F681000CE6F9 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		CA1C22CD2457FF65000CE6F9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CA1C22D224593B47000CE6F9 /* PlayerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerItemView.swift; sourceTree = "<group>"; };
+		CA1C22D4245977AC000CE6F9 /* ListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewModel.swift; sourceTree = "<group>"; };
+		CA1C22D624597855000CE6F9 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		CAF25721244B8EC40018DEF0 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF25724244B8EC40018DEF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CA1C22CF24593811000CE6F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAF25756244B934E0018DEF0 /* Structs.swift */,
+				CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */,
+				CAF25758244F359D0018DEF0 /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA1C22D024593818000CE6F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */,
+				CA1C22CD2457FF65000CE6F9 /* SearchView.swift */,
+				CAF25728244B8EC40018DEF0 /* ContentView.swift */,
+				CA1C22D224593B47000CE6F9 /* PlayerItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA1C22D124593821000CE6F9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA1C22D4245977AC000CE6F9 /* ListItemViewModel.swift */,
+				CA1C22D624597855000CE6F9 /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CAF25718244B8EC40018DEF0 = {
 			isa = PBXGroup;
 			children = (
@@ -149,18 +185,15 @@
 		CAF25723244B8EC40018DEF0 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA1C22D124593821000CE6F9 /* ViewModel */,
+				CA1C22D024593818000CE6F9 /* View */,
+				CA1C22CF24593811000CE6F9 /* Model */,
 				CAF25724244B8EC40018DEF0 /* AppDelegate.swift */,
 				CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */,
-				CAF25728244B8EC40018DEF0 /* ContentView.swift */,
 				CAF2572A244B8EC80018DEF0 /* Assets.xcassets */,
 				CAF2572F244B8EC80018DEF0 /* LaunchScreen.storyboard */,
 				CAF25732244B8EC80018DEF0 /* Info.plist */,
 				CAF2572C244B8EC80018DEF0 /* Preview Content */,
-				CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */,
-				CAF25756244B934E0018DEF0 /* Structs.swift */,
-				CAF25758244F359D0018DEF0 /* Player.swift */,
-				CA1C22C92457632A000CE6F9 /* PlayerListItemView.swift */,
-				CA1C22CB2457F681000CE6F9 /* PlayerView.swift */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -431,11 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */,
+				CA1C22CE2457FF65000CE6F9 /* SearchView.swift in Sources */,
 				CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */,
+				CA1C22D724597855000CE6F9 /* ItemViewModel.swift in Sources */,
+				CA1C22D5245977AC000CE6F9 /* ListItemViewModel.swift in Sources */,
 				CAF25757244B934E0018DEF0 /* Structs.swift in Sources */,
-				CA1C22CC2457F681000CE6F9 /* PlayerView.swift in Sources */,
 				CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */,
 				CA1C22CA2457632A000CE6F9 /* PlayerListItemView.swift in Sources */,
+				CA1C22D324593B47000CE6F9 /* PlayerItemView.swift in Sources */,
 				CAF25759244F359D0018DEF0 /* Player.swift in Sources */,
 				CAF25755244B8FE10018DEF0 /* iTunesObserver.swift in Sources */,
 			);

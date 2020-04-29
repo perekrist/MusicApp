@@ -14,6 +14,8 @@ struct PlayerListItemView: View {
     var item: Result
     @State var isPlaying = false
     var player: Player
+    @State var isDownloaded = false
+    @State var showSheet = false
     
     init(item: Result, player: Player) {
         self.item = item
@@ -22,7 +24,6 @@ struct PlayerListItemView: View {
     
     var body: some View {
         HStack {
-            
             ZStack {
                 Image("album")
                     .resizable()
@@ -57,18 +58,18 @@ struct PlayerListItemView: View {
             
             Text("\(self.item.trackTimeMillis / 60000):\(self.item.trackTimeMillis / 1000 - Int(self.item.trackTimeMillis / 60000)*60)")
                 .font(.system(size: 15))
-            .padding()
-            
-        }.onTapGesture {
-            self.isPlaying.toggle()
-            
-            if self.isPlaying {
-                self.player.start(url: self.item.previewUrl)
-            } else {
-                self.player.stop()
-            }
+                .padding()
             
         }
+        .onTapGesture {
+            self.player.start(url: self.item.previewUrl)
+            self.showSheet = true
+        }
+        .sheet(isPresented: $showSheet) {
+            PlayerItemView(item: ItemViewModel(trackViewUrl: self.item.trackViewUrl, trackName: self.item.trackName, artworkUrl100: self.item.artworkUrl100, trackTimeMillis: self.item.trackTimeMillis, artistName: self.item.artistName, previewUrl: self.item.previewUrl), player: self.player)
+        }
+        
+    
     }
 }
 

@@ -19,7 +19,7 @@ class iTunesObserver: ObservableObject {
     @Published var query = ""  {
         didSet {
             timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
+            timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (_) in
                 self.search(query: self.query)
             })
         }

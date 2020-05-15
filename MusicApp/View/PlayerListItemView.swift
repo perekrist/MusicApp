@@ -24,46 +24,61 @@ struct PlayerListItemView: View {
     
     var body: some View {
         HStack {
-            ZStack {
-                Image("album")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(20)
-                    .padding(10)
-                
-                WebImage(url: URL(string: self.item.artworkUrl60))
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(20)
-                    .padding(10)
-            }
             
-            VStack {
-                HStack {
-                    Text(self.item.trackName)
-                        .font(.callout)
-                        .lineLimit(2)
-                    Spacer()
+            HStack {
+                ZStack {
+                    Image("album")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(20)
+                        .padding(10)
+                    
+                    WebImage(url: URL(string: self.item.artworkUrl60))
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(20)
+                        .padding(10)
                 }
                 
-                HStack {
-                    Text(self.item.artistName)
-                        .font(.body)
-                        .foregroundColor(.gray)
-                    Spacer()
+                VStack {
+                    HStack {
+                        Text(self.item.trackName)
+                            .font(.callout)
+                            .lineLimit(2)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text(self.item.artistName)
+                            .font(.body)
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }
+                
+                Spacer()
+                
+                Text("\(self.item.trackTimeMillis / 60000):\(self.item.trackTimeMillis / 1000 - Int(self.item.trackTimeMillis / 60000)*60)")
+                    .font(.system(size: 15))
+                    .padding()
+            }
+                .onTapGesture {
+                    self.player.start(url: URL(string: self.item.previewUrl)!)
+                    self.showSheet = true
+                }
+            
+            if !isDownloaded {
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.gray)
+                    .padding()
+                    .onTapGesture {
+                        print("save \(self.item.trackName)")
+                        self.isDownloaded = true
                 }
             }
             
-            Spacer()
-            
-            Text("\(self.item.trackTimeMillis / 60000):\(self.item.trackTimeMillis / 1000 - Int(self.item.trackTimeMillis / 60000)*60)")
-                .font(.system(size: 15))
-                .padding()
-            
-        }
-        .onTapGesture {
-            self.player.start(url: self.item.previewUrl)
-            self.showSheet = true
         }
         .sheet(isPresented: $showSheet) {
             PlayerItemView(item: ItemViewModel(trackViewUrl: self.item.trackViewUrl, trackName: self.item.trackName, artworkUrl100: self.item.artworkUrl100, trackTimeMillis: self.item.trackTimeMillis, artistName: self.item.artistName, previewUrl: self.item.previewUrl), player: self.player)

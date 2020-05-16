@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RegistrationView: View {
     
@@ -20,6 +21,14 @@ struct RegistrationView: View {
             Color.init(UIColor.bg).edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 25) {
+//                HStack {
+//                    NavigationLink(destination: LoginView()) {
+//                        Image(systemName: "arrow.left")
+//                            .padding()
+//                    }
+//                    Spacer()
+//                }
+                
                 VStack(spacing: 18) {
                     Image("logo")
                 }
@@ -60,7 +69,7 @@ struct RegistrationView: View {
                 .modifier(TextModifier())
                 
                 Button(action: {
-                    
+                    self.register()
                 }) {
                     Text("Registration")
                         .foregroundColor(Color.black.opacity(0.7))
@@ -72,6 +81,21 @@ struct RegistrationView: View {
             }.padding(.horizontal, 30)
         }
     }
+    
+    func register() {
+        if email != "" {
+            if password == rePassword {
+                Auth.auth().createUser(withEmail: self.email, password: self.password) { (res, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    UserDefaults.standard.set(true, forKey: "status")
+                }
+            }
+        }
+    }
+    
 }
 
 struct RegistrationView_Previews: PreviewProvider {

@@ -9,21 +9,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    
     var body: some View {
-       TabView {
-           SearchView().tabItem {
-                VStack {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
+        VStack {
+            if status {
+                TabView {
+                    SearchView().tabItem {
+                        VStack {
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
+                        }
+                    }
+                    Text("My music").tabItem {
+                        VStack {
+                            Image(systemName: "music.note.list")
+                            Text("My music")
+                        }
+                    }
                 }
-           }
-           Text("My music").tabItem {
-                VStack {
-                    Image(systemName: "music.note.list")
-                    Text("My music")
-                }
-           }
-       }
+            } else {
+                LoginView()
+            }
+        }
     }
 }
 

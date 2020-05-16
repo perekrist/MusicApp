@@ -1,5 +1,53 @@
 PODS:
   - Alamofire (5.0.5)
+  - Firebase/Auth (6.21.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 6.5.1)
+  - Firebase/CoreOnly (6.21.0):
+    - FirebaseCore (= 6.6.5)
+  - FirebaseAuth (6.5.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.5)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseAuthInterop (1.1.0)
+  - FirebaseCore (6.6.5):
+    - FirebaseCoreDiagnostics (~> 1.2)
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+  - FirebaseCoreDiagnostics (1.2.2):
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleDataTransportCCTSupport (~> 2.0)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+    - nanopb (~> 0.3.901)
+  - FirebaseCoreDiagnosticsInterop (1.2.0)
+  - GoogleDataTransport (5.1.0)
+  - GoogleDataTransportCCTSupport (2.0.1):
+    - GoogleDataTransport (~> 5.1)
+    - nanopb (~> 0.3.901)
+  - GoogleUtilities/AppDelegateSwizzler (6.5.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.5.2)
+  - GoogleUtilities/Logger (6.5.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (6.5.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.5.2)"
+  - GoogleUtilities/Reachability (6.5.2):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.3.1)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
   - SDWebImage (5.7.2):
     - SDWebImage/Core (= 5.7.2)
   - SDWebImage/Core (5.7.2)
@@ -9,22 +57,45 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
+  - Firebase/Auth
   - SDWebImageSwiftUI
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Firebase
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - nanopb
     - SDWebImage
     - SDWebImageSwiftUI
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Firebase: f378c80340dd41c0ad0914af740c021eb282a04b
+  FirebaseAuth: 7047aec89c0b17ecd924a550c853f0c27ac6015e
+  FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
+  FirebaseCore: 9f495d3afacb7b558711e6218ebb14b1c51b5802
+  FirebaseCoreDiagnostics: e9b4cd8ba60dee0f2d13347332e4b7898cca5b61
+  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
+  GoogleDataTransport: b29a21d813e906014ca16c00897827e40e4a24ab
+  GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
+  GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   SDWebImageSwiftUI: f1d11beac87e8a2edf08ea73ed1912f482e4d5a3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 4284765d314dd71ab62b07d28316fc66d11cd28f
+PODFILE CHECKSUM: c57746c16660551864c85b14f37dd27b715b638f
 
 COCOAPODS: 1.9.1

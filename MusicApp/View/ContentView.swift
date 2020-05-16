@@ -38,9 +38,10 @@ struct ContentView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                         }) {
                             Text("LogOut")
+                                .foregroundColor(.gray)
                         }
                     )
-                }
+                }.accentColor(.gray)
             } else {
                 LoginView(status: self.status)
             }

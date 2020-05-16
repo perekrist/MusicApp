@@ -78,9 +78,9 @@ struct PlayerView: View {
                     self.isPlaying.toggle()
                     
                     if !self.isPlaying {
-                        self.player.stop()
+                        self.player.pause()
                     } else {
-                        self.player.start(url: URL(string: self.item.previewUrl)!)
+                        self.player.play()
                     }
                 }) {
                     Image(systemName: self.isPlaying ? "pause.fill" : "play.fill")

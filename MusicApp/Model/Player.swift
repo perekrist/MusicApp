@@ -24,9 +24,14 @@ class Player {
         print(url)
     }
     
-    func stop() {
+    func pause() {
         player?.pause()
         isPlaying = false
+    }
+    
+    func play() {
+        player?.play()
+        isPlaying = true
     }
     
     func playSaved(name: String) {

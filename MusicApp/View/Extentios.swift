@@ -59,6 +59,7 @@ struct ButtonModifier: ButtonStyle {
 struct OthersModifier: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .padding()
             .background(Color.init(UIColor.bg))
             .clipShape(Circle())
             .overlay(

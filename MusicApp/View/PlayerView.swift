@@ -1,5 +1,5 @@
 //
-//  PlayerItemView.swift
+//  PlayerView.swift
 //  MusicApp
 //
 //  Created by Кристина Перегудова on 29.04.2020.

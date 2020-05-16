@@ -22,7 +22,7 @@ struct SearchView: View {
                     TextField("Search...", text: self.$obs.query)
                     if self.obs.results.count != 0 {
                         ForEach(self.obs.results, id: \.self) { i in
-                            PlayerListItemView(item: i, player: self.player)
+                            PlayerItemView(item: i, player: self.player)
                         }
                     }
                 }

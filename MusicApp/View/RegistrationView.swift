@@ -11,23 +11,18 @@ import Firebase
 
 struct RegistrationView: View {
     
-    @State var name = ""
-    @State var email = ""
-    @State var password = ""
-    @State var rePassword = ""
+    @State private var name = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var rePassword = ""
+    
+    @State var status = false
     
     var body: some View {
         ZStack {
             Color.init(UIColor.bg).edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 25) {
-//                HStack {
-//                    NavigationLink(destination: LoginView()) {
-//                        Image(systemName: "arrow.left")
-//                            .padding()
-//                    }
-//                    Spacer()
-//                }
                 
                 VStack(spacing: 18) {
                     Image("logo")
@@ -91,6 +86,8 @@ struct RegistrationView: View {
                         return
                     }
                     UserDefaults.standard.set(true, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                    self.status.toggle()
                 }
             }
         }

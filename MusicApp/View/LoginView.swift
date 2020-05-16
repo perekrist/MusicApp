@@ -11,8 +11,10 @@ import Firebase
 
 struct LoginView: View {
     
-    @State var email = ""
-    @State var password = ""
+    @State private var email = ""
+    @State private var password = ""
+    
+    @State var status = false
     
     var body: some View {
         NavigationView {
@@ -20,15 +22,6 @@ struct LoginView: View {
                 Color.init(UIColor.bg).edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 25) {
-                    
-                    HStack {
-                        Spacer()
-                        NavigationLink(destination: RegistrationView()) {
-                            Text("Create account")
-                                .foregroundColor(.gray)
-                                .padding(.horizontal)
-                        }
-                    }
                     
                     VStack(spacing: 18) {
                         Image("logo")
@@ -50,6 +43,8 @@ struct LoginView: View {
                             .foregroundColor(.gray)
                         
                         SecureField("Password", text: self.$password)
+                        
+                        
                     }
                     .modifier(TextModifier())
                     
@@ -60,6 +55,8 @@ struct LoginView: View {
                                 return
                             }
                             UserDefaults.standard.set(true, forKey: "status")
+                            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                            self.status.toggle()
                         }
                     }) {
                         Text("Login")
@@ -95,10 +92,16 @@ struct LoginView: View {
                     }
                     
                 }.padding(.horizontal, 30)
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(false)
+            }.navigationBarItems(trailing:
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: RegistrationView(status: self.status)) {
+                        Text("Create account")
+                            .foregroundColor(.gray)
+                            .padding(.horizontal)
+                    }
+                }
+            )
         }
     }
 }

@@ -51,61 +51,34 @@ struct LoginView: View {
                 }
                 .buttonStyle(ButtonModifier())
                 
+                Text("--OR--")
+                    .foregroundColor(.gray)
+                
+                HStack(spacing: 15) {
+                    Button(action: {
+                        
+                    }) {
+                        Image("vk")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding(20)
+                    }.buttonStyle(OthersModifier())
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Image("google")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding(20)
+                    }.buttonStyle(OthersModifier())
+                }
+                
             }.padding(.horizontal, 30)
         }
     }
-}
-
-struct TopModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content.background(Color.init(UIColor.bg))
-            .cornerRadius(15)
-            .shadow(color: Color.black.opacity(0.2), radius: 6, x: 10, y: 10)
-            .shadow(color: Color.white.opacity(0.5), radius: 6, x: -8, y: -8)
-    }
-}
-
-struct TextModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(20)
-            .background(Color.init(UIColor.bg))
-            .cornerRadius(15)
-            .overlay(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.black.opacity(0.05), lineWidth: 4)
-                    .shadow(color: Color.black.opacity(0.2), radius: 3, x: 5, y: 5)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .shadow(color: Color.black.opacity(0.2), radius: 3, x: -5, y: -5)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-        )
-    }
-}
-
-struct ButtonModifier: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .background(Color.init(UIColor.bg))
-            .cornerRadius(15)
-            .overlay(
-                VStack {
-                    if configuration.isPressed {
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.black.opacity(0.05), lineWidth: 4)
-                            .shadow(color: Color.black.opacity(0.2), radius: 3, x: 5, y: 5)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .shadow(color: Color.black.opacity(0.2), radius: 3, x: -5, y: -5)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                    }
-                }
-        )
-            .shadow(color: Color.black.opacity(configuration.isPressed ? 0 : 0.2), radius: 3, x: 5, y: 5)
-            .shadow(color: Color.white.opacity(configuration.isPressed ? 0 : 0.6), radius: 3, x: -5, y: -5)
-    }
-}
-
-extension UIColor {
-    static let bg = UIColor(red: 233 / 255, green: 242 / 255, blue: 252 / 255, alpha: 1)
 }
 
 struct LoginView_Previews: PreviewProvider {

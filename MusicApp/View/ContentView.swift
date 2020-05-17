@@ -12,6 +12,7 @@ import Firebase
 struct ContentView: View {
     
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    var player = Player()
     
     var body: some View {
         
@@ -19,13 +20,13 @@ struct ContentView: View {
             if status {
                 NavigationView {
                     TabView {
-                        SearchView().tabItem {
+                        SearchView(player: player).tabItem {
                             VStack {
                                 Image(systemName: "magnifyingglass")
                                 Text("Search")
                             }
                         }
-                        Text("My music").tabItem {
+                        MyMusicView(player: player).tabItem {
                             VStack {
                                 Image(systemName: "music.note.list")
                                 Text("My music")
@@ -41,6 +42,8 @@ struct ContentView: View {
                                 .foregroundColor(.gray)
                         }
                     )
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 }.accentColor(.gray)
             } else {
                 LoginView(status: self.status)

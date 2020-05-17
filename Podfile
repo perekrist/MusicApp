@@ -9,7 +9,12 @@ target 'MusicApp' do
 	pod 'Alamofire', '~> 5.0'
 	pod 'SwiftyJSON', '~> 4.0'
 	pod 'SDWebImageSwiftUI'
+  
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'MusicAppTests' do
     inherit! :search_paths

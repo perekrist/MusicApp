@@ -9,32 +9,22 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var obs = iTunesObserver()
-    var player = Player()
+    @ObservedObject var resultViewModel = iTunesObserver()
+    var player: Player
     
     @State var isPlaying = false
-    @State var item: Result?
+    @State var item: Song?
     
     var body: some View {
-        ZStack {
-            List {
-                VStack {
-                    TextField("Search...", text: self.$obs.query)
-                    if self.obs.results.count != 0 {
-                        ForEach(self.obs.results, id: \.self) { i in
-                            PlayerItemView(item: i, player: self.player)
-                        }
-                    }
-                }
+        VStack {
+            TextField("Search...", text: self.$resultViewModel.query)
+                .padding()
+            List(self.resultViewModel.results) { song in
+                PlayerItemView(song: song, player: self.player)
             }
-            
-            
+            Spacer()
         }
-    }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+        
+        
     }
 }

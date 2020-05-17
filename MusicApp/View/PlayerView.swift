@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct PlayerView: View {
     
-    var item: ItemViewModel
+    var song: Song
     var player: Player
     @State var time: Double = 0
     @State var volume: Double = 0
@@ -39,7 +39,7 @@ struct PlayerView: View {
                     .padding()
                     .modifier(TopModifier())
                 
-                WebImage(url: URL(string: item.artworkUrl100))
+                WebImage(url: URL(string: song.artworkUrl100))
                     .resizable()
                     .frame(width: 250, height: 250)
                     .cornerRadius(10)
@@ -47,17 +47,17 @@ struct PlayerView: View {
                     .modifier(TopModifier())
             }.padding(.top, 20)
             
-            Slider(value: $time, in: 0...Double(item.trackTimeMillis/1000), step: 1.0)
+            Slider(value: $time, in: 0...Double(song.trackTimeMillis/1000), step: 1.0)
                 .padding()
             
-            Text(item.trackName)
+            Text(song.trackName)
                 .font(.system(size: 25))
                 .bold()
             
             Button(action: {
                 
             }) {
-                Text(item.artistName)
+                Text(song.artistName)
                     .font(.system(size: 30))
                     .padding()
             }
@@ -117,11 +117,5 @@ struct PlayerView: View {
             
         }
         }
-    }
-}
-
-struct PlayerItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerView(item: ItemViewModel(trackViewUrl: "", trackName: "when the party's over", artworkUrl100: "", trackTimeMillis: 10000, artistName: "Billie Eilish", previewUrl: ""), player: Player())
     }
 }

@@ -17,7 +17,6 @@ class Player {
     var url_ = ""
     
     func start(url: URL) {
-        
         player = AVPlayer(url: url)
         player?.play()
         isPlaying = true
@@ -40,7 +39,6 @@ class Player {
     }
     
     func downloadSong(url: URL) {
-        
         let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         let destinationUrl = documentsDirectoryURL.appendingPathComponent(url.lastPathComponent)

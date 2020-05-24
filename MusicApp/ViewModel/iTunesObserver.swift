@@ -43,7 +43,7 @@ class iTunesObserver: ObservableObject {
                 self.results.append(Song(id: UUID(),
                                          trackViewUrl: i.1["trackViewUrl"].stringValue,
                                          trackName: i.1["trackName"].stringValue,
-                                         artworkUrl100: i.1["artworkUrl00"].stringValue,
+                                         artworkUrl100: i.1["artworkUrl100"].stringValue,
                                          artworkUrl60: i.1["artworkUrl60"].stringValue,
                                          trackTimeMillis: i.1["trackTimeMillis"].intValue,
                                          artistName: i.1["artistName"].stringValue,

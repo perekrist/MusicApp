@@ -34,11 +34,11 @@ struct ErrorView: View {
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 150)
                 }
-                .buttonStyle(ButtonModifier())
+                .buttonStyle(SimpleButtonModifier())
             }
             .padding(.vertical, 25)
             .frame(width: UIScreen.main.bounds.width - 70)
-            .background(Color.init(UIColor.bg))
+            .background(Color.bg)
             .cornerRadius(15)
             .shadow(radius: 10)
         }

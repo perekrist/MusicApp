@@ -19,7 +19,7 @@ struct PlayerView: View {
     
     var body: some View {
         ZStack {
-            Color.init(UIColor.bg).edgesIgnoringSafeArea(.all)
+            Color.bg.edgesIgnoringSafeArea(.all)
             VStack {
             
             Button(action: {
@@ -72,7 +72,7 @@ struct PlayerView: View {
                         .renderingMode(.original)
                         .font(.system(size: 30))
                         .padding(20)
-                }.buttonStyle(OthersModifier())
+                }.buttonStyle(CircleButtonModifier())
                 
                 Button(action: {
                     self.isPlaying.toggle()
@@ -88,7 +88,7 @@ struct PlayerView: View {
                         .font(.system(size: 50))
                         .padding(.horizontal, 30)
                         .padding(.vertical, 10)
-                }.buttonStyle(OthersModifier())
+                }.buttonStyle(CircleButtonModifier())
                 
                 Button(action: {
                     
@@ -97,7 +97,7 @@ struct PlayerView: View {
                         .renderingMode(.original)
                         .font(.system(size: 30))
                         .padding(20)
-                }.buttonStyle(OthersModifier())
+                }.buttonStyle(CircleButtonModifier())
             }
             
             Spacer()

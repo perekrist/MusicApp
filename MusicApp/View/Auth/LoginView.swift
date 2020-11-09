@@ -24,7 +24,7 @@ struct LoginView: View {
     NavigationView {
       ZStack {
         ZStack {
-          Color.init(UIColor.bg).edgesIgnoringSafeArea(.all)
+          Color.bg.edgesIgnoringSafeArea(.all)
           
           VStack(spacing: 25) {
             
@@ -62,7 +62,7 @@ struct LoginView: View {
                 .padding(.vertical)
                 .frame(width: UIScreen.main.bounds.width - 150)
             }
-            .buttonStyle(ButtonModifier())
+            .buttonStyle(SimpleButtonModifier())
             
             Text("--OR--")
               .foregroundColor(.gray)
@@ -75,7 +75,7 @@ struct LoginView: View {
                   .renderingMode(.original)
                   .resizable()
                   .frame(width: 40, height: 40)
-              }.buttonStyle(OthersModifier())
+              }.buttonStyle(CircleButtonModifier())
               
               Button(action: {
                 
@@ -84,7 +84,7 @@ struct LoginView: View {
                   .renderingMode(.original)
                   .resizable()
                   .frame(width: 40, height: 40)
-              }.buttonStyle(OthersModifier())
+              }.buttonStyle(CircleButtonModifier())
             }
             
           }.padding(.horizontal, 30)

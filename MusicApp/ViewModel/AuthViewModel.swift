@@ -15,17 +15,25 @@ class AuthViewModel {
   
   func login(email: String, password: String) {
     Auth.auth().signIn(withEmail: email, password: password) { (res, error) in
-        if error != nil {
-          self.onDidError?(error!)
-            return
-        }
-        UserDefaults.standard.set(true, forKey: "status")
-        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-        self.onDidSuccess?()
+      if error != nil {
+        self.onDidError?(error!)
+        return
+      }
+      UserDefaults.standard.set(true, forKey: "status")
+      NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+      self.onDidSuccess?()
     }
   }
   
-  func register() {
-    
+  func register(email: String, password: String) {
+    Auth.auth().createUser(withEmail: email, password: password) { (res, error) in
+      if error != nil {
+        self.onDidError?(error!)
+        return
+      }
+      UserDefaults.standard.set(true, forKey: "status")
+      NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+      self.onDidSuccess?()
+    }
   }
 }

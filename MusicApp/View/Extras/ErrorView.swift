@@ -14,7 +14,8 @@ struct ErrorView: View {
     @Binding var error: String
     
     var body: some View {
-        GeometryReader { _ in
+        ZStack {
+          Color.black.opacity(0.3).edgesIgnoringSafeArea(.all)
             VStack {
                 Text("Error")
                     .font(.title)
@@ -39,7 +40,7 @@ struct ErrorView: View {
             .frame(width: UIScreen.main.bounds.width - 70)
             .background(Color.init(UIColor.bg))
             .cornerRadius(15)
+            .shadow(radius: 10)
         }
-        .background(Color.black.opacity(0.3).edgesIgnoringSafeArea(.all))
     }
 }

@@ -22,6 +22,7 @@
 		CA871BBF24715484008D124A /* MyMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BBE24715484008D124A /* MyMusicView.swift */; };
 		CAC22C6425591C41000C76CA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC22C6325591C41000C76CA /* FirebaseService.swift */; };
 		CAC22C6C25591DCE000C76CA /* SearchSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */; };
+		CAC22C74255925C6000C76CA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC22C73255925C6000C76CA /* AuthViewModel.swift */; };
 		CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25724244B8EC40018DEF0 /* AppDelegate.swift */; };
 		CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */; };
 		CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25728244B8EC40018DEF0 /* ContentView.swift */; };
@@ -71,6 +72,7 @@
 		CA871BBE24715484008D124A /* MyMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicView.swift; sourceTree = "<group>"; };
 		CAC22C6325591C41000C76CA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsViewModel.swift; sourceTree = "<group>"; };
+		CAC22C73255925C6000C76CA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		CAF25721244B8EC40018DEF0 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF25724244B8EC40018DEF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				CA871BB8247148C3008D124A /* MySongsViewModel.swift */,
 				CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */,
+				CAC22C73255925C6000C76CA /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -228,8 +231,8 @@
 		CAF25723244B8EC40018DEF0 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
-				CAC22C6225591C2B000C76CA /* Services */,
 				CA871BAE246FC126008D124A /* GoogleService-Info.plist */,
+				CAC22C6225591C2B000C76CA /* Services */,
 				CA1C22D124593821000CE6F9 /* ViewModel */,
 				CA1C22D024593818000CE6F9 /* View */,
 				CA1C22CF24593811000CE6F9 /* Model */,
@@ -517,6 +520,7 @@
 				CA871BBF24715484008D124A /* MyMusicView.swift in Sources */,
 				CA871BAD246FB17F008D124A /* RegistrationView.swift in Sources */,
 				CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */,
+				CAC22C74255925C6000C76CA /* AuthViewModel.swift in Sources */,
 				CAC22C6C25591DCE000C76CA /* SearchSongsViewModel.swift in Sources */,
 				CA871BA9246F9B68008D124A /* LoginView.swift in Sources */,
 				CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */,

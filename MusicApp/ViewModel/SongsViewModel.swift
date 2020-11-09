@@ -24,19 +24,19 @@ class SongsViewModel: ObservableObject {
                 return
             }
             
-            self.songs = documents.map { queryDocumentSnapshot -> Song in
-                let data = queryDocumentSnapshot
-
-                let trackViewUrl = data["trackViewUrl"] as? String ?? ""
-                let trackName = data["trackName"] as? String ?? ""
-                let artworkUrl100 = data["artworkUrl100"] as? String ?? ""
-                let artworkUrl60 = data["artworkUrl60"] as? String ?? ""
-                let trackTimeMillis = data["trackTimeMillis"] as? Int ?? 0
-                let artistName = data["artistName"] as? String ?? ""
-                let previewUrl = data["previewUrl"] as? String ?? ""
-
-                return Song(id: UUID(), trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
-            }
+//            self.songs = documents.map { queryDocumentSnapshot -> Song in
+//                let data = queryDocumentSnapshot
+//
+//                let trackViewUrl = data["trackViewUrl"] as? String ?? ""
+//                let trackName = data["trackName"] as? String ?? ""
+//                let artworkUrl100 = data["artworkUrl100"] as? String ?? ""
+//                let artworkUrl60 = data["artworkUrl60"] as? String ?? ""
+//                let trackTimeMillis = data["trackTimeMillis"] as? Int ?? 0
+//                let artistName = data["artistName"] as? String ?? ""
+//                let previewUrl = data["previewUrl"] as? String ?? ""
+//
+//                return Song(id: UUID(), trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
+//            }
         }
     }
     

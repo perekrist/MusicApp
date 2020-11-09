@@ -79,7 +79,7 @@ struct PlayerItemView: View {
                         .foregroundColor(.gray)
                         .padding()
                         .onTapGesture {
-                            self.songsViewModel.addToMyMusic(song: Song(id: UUID(), trackViewUrl: self.song.trackViewUrl, trackName: self.song.trackName, artworkUrl100: self.song.artworkUrl100, artworkUrl60: self.song.artworkUrl60, trackTimeMillis: self.song.trackTimeMillis, artistName: self.song.artistName, previewUrl: self.song.previewUrl))
+                            self.songsViewModel.addToMyMusic(song: song)
                             self.isDownloaded = true
                     }
                 }
@@ -87,7 +87,7 @@ struct PlayerItemView: View {
             }
         }
         .sheet(isPresented: $showSheet) {
-            PlayerView(song: Song(id: UUID(), trackViewUrl: self.song.trackViewUrl, trackName: self.song.trackName, artworkUrl100: self.song.artworkUrl100, artworkUrl60: self.song.artworkUrl60, trackTimeMillis: self.song.trackTimeMillis, artistName: self.song.artistName, previewUrl: self.song.previewUrl), player: self.player)
+          PlayerView(song: song, player: player)
         }
         
         

@@ -20,7 +20,7 @@ struct PlayerItemView: View {
     @State var isDownloaded = false
     @State var showSheet = false
     
-    @ObservedObject var songsViewModel = SongsViewModel()
+    @ObservedObject var songsViewModel = MySongsViewModel()
     
     init(song: Song, player: Player) {
         self.song = song
@@ -79,7 +79,7 @@ struct PlayerItemView: View {
                         .foregroundColor(.gray)
                         .padding()
                         .onTapGesture {
-                            self.songsViewModel.addToMyMusic(song: song)
+                            self.songsViewModel.addSong(song: song)
                             self.isDownloaded = true
                     }
                 }

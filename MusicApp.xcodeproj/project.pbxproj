@@ -17,9 +17,11 @@
 		CA871BAD246FB17F008D124A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BAC246FB17F008D124A /* RegistrationView.swift */; };
 		CA871BAF246FC126008D124A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA871BAE246FC126008D124A /* GoogleService-Info.plist */; };
 		CA871BB1246FE11A008D124A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BB0246FE11A008D124A /* ErrorView.swift */; };
-		CA871BB9247148C3008D124A /* SongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BB8247148C3008D124A /* SongsViewModel.swift */; };
+		CA871BB9247148C3008D124A /* MySongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BB8247148C3008D124A /* MySongsViewModel.swift */; };
 		CA871BBB2471495F008D124A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BBA2471495F008D124A /* Song.swift */; };
 		CA871BBF24715484008D124A /* MyMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA871BBE24715484008D124A /* MyMusicView.swift */; };
+		CAC22C6425591C41000C76CA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC22C6325591C41000C76CA /* FirebaseService.swift */; };
+		CAC22C6C25591DCE000C76CA /* SearchSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */; };
 		CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25724244B8EC40018DEF0 /* AppDelegate.swift */; };
 		CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */; };
 		CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25728244B8EC40018DEF0 /* ContentView.swift */; };
@@ -28,7 +30,7 @@
 		CAF25731244B8EC80018DEF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF2572F244B8EC80018DEF0 /* LaunchScreen.storyboard */; };
 		CAF2573C244B8EC80018DEF0 /* MusicAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF2573B244B8EC80018DEF0 /* MusicAppTests.swift */; };
 		CAF25747244B8EC80018DEF0 /* MusicAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25746244B8EC80018DEF0 /* MusicAppUITests.swift */; };
-		CAF25755244B8FE10018DEF0 /* iTunesObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */; };
+		CAF25755244B8FE10018DEF0 /* iTunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25754244B8FE10018DEF0 /* iTunesService.swift */; };
 		CAF25759244F359D0018DEF0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF25758244F359D0018DEF0 /* Player.swift */; };
 		D1559F43259AFB2627FE611D /* Pods_MusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0323510B5A601355457295B /* Pods_MusicApp.framework */; };
 /* End PBXBuildFile section */
@@ -64,9 +66,11 @@
 		CA871BAC246FB17F008D124A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		CA871BAE246FC126008D124A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CA871BB0246FE11A008D124A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		CA871BB8247148C3008D124A /* SongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewModel.swift; sourceTree = "<group>"; };
+		CA871BB8247148C3008D124A /* MySongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySongsViewModel.swift; sourceTree = "<group>"; };
 		CA871BBA2471495F008D124A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		CA871BBE24715484008D124A /* MyMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicView.swift; sourceTree = "<group>"; };
+		CAC22C6325591C41000C76CA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsViewModel.swift; sourceTree = "<group>"; };
 		CAF25721244B8EC40018DEF0 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF25724244B8EC40018DEF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF25726244B8EC40018DEF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 		CAF25742244B8EC80018DEF0 /* MusicAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF25746244B8EC80018DEF0 /* MusicAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppUITests.swift; sourceTree = "<group>"; };
 		CAF25748244B8EC80018DEF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesObserver.swift; sourceTree = "<group>"; };
+		CAF25754244B8FE10018DEF0 /* iTunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesService.swift; sourceTree = "<group>"; };
 		CAF25758244F359D0018DEF0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E65B337E41C70F8E7D1ACCA5 /* Pods-MusicApp-MusicAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp-MusicAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp-MusicAppUITests/Pods-MusicApp-MusicAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0323510B5A601355457295B /* Pods_MusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +170,8 @@
 		CA1C22D124593821000CE6F9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CAF25754244B8FE10018DEF0 /* iTunesObserver.swift */,
-				CA871BB8247148C3008D124A /* SongsViewModel.swift */,
+				CA871BB8247148C3008D124A /* MySongsViewModel.swift */,
+				CAC22C6B25591DCE000C76CA /* SearchSongsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +192,15 @@
 				CA871BB0246FE11A008D124A /* ErrorView.swift */,
 			);
 			path = Extras;
+			sourceTree = "<group>";
+		};
+		CAC22C6225591C2B000C76CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CAF25754244B8FE10018DEF0 /* iTunesService.swift */,
+				CAC22C6325591C41000C76CA /* FirebaseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CAF25718244B8EC40018DEF0 = {
@@ -215,6 +228,7 @@
 		CAF25723244B8EC40018DEF0 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				CAC22C6225591C2B000C76CA /* Services */,
 				CA871BAE246FC126008D124A /* GoogleService-Info.plist */,
 				CA1C22D124593821000CE6F9 /* ViewModel */,
 				CA1C22D024593818000CE6F9 /* View */,
@@ -497,19 +511,21 @@
 			files = (
 				CA871BBB2471495F008D124A /* Song.swift in Sources */,
 				CA871BAB246FAE06008D124A /* Extentios.swift in Sources */,
+				CAC22C6425591C41000C76CA /* FirebaseService.swift in Sources */,
 				CAF25725244B8EC40018DEF0 /* AppDelegate.swift in Sources */,
 				CA1C22CE2457FF65000CE6F9 /* SearchView.swift in Sources */,
 				CA871BBF24715484008D124A /* MyMusicView.swift in Sources */,
 				CA871BAD246FB17F008D124A /* RegistrationView.swift in Sources */,
 				CAF25727244B8EC40018DEF0 /* SceneDelegate.swift in Sources */,
+				CAC22C6C25591DCE000C76CA /* SearchSongsViewModel.swift in Sources */,
 				CA871BA9246F9B68008D124A /* LoginView.swift in Sources */,
 				CAF25729244B8EC40018DEF0 /* ContentView.swift in Sources */,
 				CA871BB1246FE11A008D124A /* ErrorView.swift in Sources */,
 				CA1C22CA2457632A000CE6F9 /* PlayerItemView.swift in Sources */,
 				CA1C22D324593B47000CE6F9 /* PlayerView.swift in Sources */,
 				CAF25759244F359D0018DEF0 /* Player.swift in Sources */,
-				CAF25755244B8FE10018DEF0 /* iTunesObserver.swift in Sources */,
-				CA871BB9247148C3008D124A /* SongsViewModel.swift in Sources */,
+				CAF25755244B8FE10018DEF0 /* iTunesService.swift in Sources */,
+				CA871BB9247148C3008D124A /* MySongsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

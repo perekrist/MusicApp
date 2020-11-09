@@ -1,8 +1,8 @@
 //
-//  SongsViewModel.swift
+//  FirebaseService.swift
 //  MusicApp
 //
-//  Created by Кристина Перегудова on 17.05.2020.
+//  Created by Кристина Перегудова on 09.11.2020.
 //  Copyright © 2020 Кристина Перегудова. All rights reserved.
 //
 
@@ -10,14 +10,12 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class SongsViewModel: ObservableObject {
-    
-    @Published var songs = [Song]()
+class FirebaseService: ObservableObject {
     
     private var db = Firestore.firestore()
     let userId = Auth.auth().currentUser!.uid
     
-    func fetchData() {
+    func fetchData() -> [Song] {
         db.collection(userId).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
@@ -35,9 +33,10 @@ class SongsViewModel: ObservableObject {
 //                let artistName = data["artistName"] as? String ?? ""
 //                let previewUrl = data["previewUrl"] as? String ?? ""
 //
-//                return Song(id: UUID(), trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
+//              return Song(from: Decoder(id: UUID(), trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl))
 //            }
         }
+      return []
     }
     
     func addToMyMusic(song: Song) {

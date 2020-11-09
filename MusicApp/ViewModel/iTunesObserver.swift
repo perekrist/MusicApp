@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class iTunesObserver: ObservableObject {
+class iTunesService: ObservableObject {
     
     private var timer: Timer?
     let baseUrl = "https://itunes.apple.com/"
@@ -40,7 +40,6 @@ class iTunesObserver: ObservableObject {
       switch response.result {
       case .success(let data):
         guard let data = data else { return }
-        print(data)
         let decoder = JSONDecoder()
         let songsResponse = try! decoder.decode(SongResponse.self, from: data)
         self.results = songsResponse.results

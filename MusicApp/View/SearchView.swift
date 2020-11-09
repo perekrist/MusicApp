@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var resultViewModel = iTunesObserver()
+    @ObservedObject var resultViewModel = SearchSongsViewModel()
     var player: Player
     
     @State var isPlaying = false
@@ -19,7 +19,7 @@ struct SearchView: View {
         VStack {
             TextField("Search...", text: self.$resultViewModel.query)
                 .padding()
-            List(self.resultViewModel.results) { song in
+            List(self.resultViewModel.songs) { song in
                 PlayerItemView(song: song, player: self.player)
             }
             Spacer()

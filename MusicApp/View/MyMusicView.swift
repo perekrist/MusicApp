@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MyMusicView: View {
     
-    @ObservedObject var songsViewModel = SongsViewModel()
+    @ObservedObject var songsViewModel = MySongsViewModel()
     var player: Player
     
     var body: some View {
@@ -24,7 +24,7 @@ struct MyMusicView: View {
             }
             
         }.onAppear() {
-            self.songsViewModel.fetchData()
+            self.songsViewModel.getSongs()
         }
         
     }

@@ -10,7 +10,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 import Firebase
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct PlayerItemView: View {
     

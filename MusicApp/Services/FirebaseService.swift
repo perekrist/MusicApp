@@ -1,5 +1,5 @@
 //
-//  SongsViewModel.swift
+//  FirebaseService.swift
 //  MusicApp
 //
 
@@ -31,7 +31,7 @@ class SongsViewModel: ObservableObject {
         let artistName = data["artistName"] as? String ?? ""
         let previewUrl = data["previewUrl"] as? String ?? ""
         
-        return Song(id: UUID(), trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
+        return Song(trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
       }
     }
   }
@@ -53,6 +53,6 @@ class SongsViewModel: ObservableObject {
           return
         }
         print("success")
-      } 
+      }
   }
 }

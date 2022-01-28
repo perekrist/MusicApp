@@ -7,13 +7,16 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class SongsViewModel: ObservableObject {
+class FirebaseService: ObservableObject {
   @Published var songs = [Song]()
   
   private var db = Firestore.firestore()
-  let userId = Auth.auth().currentUser!.uid
+  private var userId: String? {
+    return Auth.auth().currentUser?.uid
+  }
   
-  func fetchData() {
+  func loadSongs() {
+    guard let userId = userId else { return }
     db.collection(userId).addSnapshotListener { (querySnapshot, error) in
       guard let documents = querySnapshot?.documents else {
         print("No documents")
@@ -23,6 +26,7 @@ class SongsViewModel: ObservableObject {
       self.songs = documents.map { queryDocumentSnapshot -> Song in
         let data = queryDocumentSnapshot
         
+        let trackId = data["trackId"] as? Int ?? 0
         let trackViewUrl = data["trackViewUrl"] as? String ?? ""
         let trackName = data["trackName"] as? String ?? ""
         let artworkUrl100 = data["artworkUrl100"] as? String ?? ""
@@ -31,15 +35,23 @@ class SongsViewModel: ObservableObject {
         let artistName = data["artistName"] as? String ?? ""
         let previewUrl = data["previewUrl"] as? String ?? ""
         
-        return Song(trackViewUrl: trackViewUrl, trackName: trackName, artworkUrl100: artworkUrl100, artworkUrl60: artworkUrl60, trackTimeMillis: trackTimeMillis, artistName: artistName, previewUrl: previewUrl)
+        return Song(trackId: trackId,
+                    trackViewUrl: trackViewUrl,
+                    trackName: trackName,
+                    artworkUrl100: artworkUrl100,
+                    artworkUrl60: artworkUrl60,
+                    trackTimeMillis: trackTimeMillis,
+                    artistName: artistName,
+                    previewUrl: previewUrl)
       }
     }
   }
   
   func addToMyMusic(song: Song) {
-    let db = Firestore.firestore()
+    guard let userId = userId else { return }
     db.collection(userId).document()
       .setData([
+        "trackId": song.trackId,
         "trackViewUrl": song.trackViewUrl,
         "trackName": song.trackName,
         "artworkUrl100": song.artworkUrl100,
@@ -47,9 +59,9 @@ class SongsViewModel: ObservableObject {
         "trackTimeMillis": song.trackTimeMillis,
         "artistName": song.artistName,
         "previewUrl": song.previewUrl
-      ]) { (err) in
-        if err != nil{
-          print((err?.localizedDescription)!)
+      ]) { error in
+        guard error != nil else {
+          print(error?.localizedDescription)
           return
         }
         print("success")

@@ -16,7 +16,7 @@ class NetworkService {
 }
 
 enum CustomError: Error {
-  case invalidURL
+  case invalidURL, noDocument
 }
 
 extension NetworkService {

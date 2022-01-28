@@ -7,14 +7,13 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
+  @State var isLoggedIn = false
   
   @State private var email = ""
   @State private var password = ""
   
-  @State var status = false
-  
-  @State var alert = false
-  @State var error = ""
+  @State private var showAlert = false
+  @State private var errorText = ""
   
   var body: some View {
     NavigationView {
@@ -34,7 +33,7 @@ struct LoginView: View {
               Image(systemName: "envelope.fill")
                 .foregroundColor(.gray)
               
-              TextField("Email", text: self.$email)
+              TextField("Email", text: $email)
                 .autocapitalization(.none)
             }.modifier(TextModifier())
             
@@ -42,12 +41,12 @@ struct LoginView: View {
               Image(systemName: "lock.fill")
                 .foregroundColor(.gray)
               
-              SecureField("Password", text: self.$password)
+              SecureField("Password", text: $password)
               
             }.modifier(TextModifier())
             
             Button(action: {
-              self.verify()
+              verify()
             }) {
               Text("Login")
                 .foregroundColor(.black.opacity(0.7))
@@ -83,30 +82,26 @@ struct LoginView: View {
         }.navigationBarItems(trailing:
                               HStack {
           Spacer()
-          NavigationLink(destination: RegistrationView(status: self.status)) {
+          NavigationLink(destination: RegistrationView(status: isLoggedIn)) {
             Text("Create account")
               .foregroundColor(.gray)
               .padding(.horizontal)
           }
         })
-        
-        if self.alert { // TODO: remake with view modifier
-          ErrorView(showAlert: self.$alert, errorText: self.$error)
-        }
-      }
+      }.showBannerView(show: $showAlert, text: $errorText)
     }
   }
   
-  func verify() {
-    Auth.auth().signIn(withEmail: self.email, password: self.password) { (res, error) in
-      if error != nil {
-        self.error = error?.localizedDescription as! String
-        self.alert.toggle()
+  private func verify() { // TODO: extract to viewModel
+    Auth.auth().signIn(withEmail: email, password: password) { (res, error) in
+      if let error = error {
+        self.errorText = error.localizedDescription
+        self.showAlert.toggle()
         return
       }
-      UserDefaults.standard.set(true, forKey: "status")
-      NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-      self.status.toggle()
+      UserDefaults.standard.set(true, forKey: "isLoggedIn")
+      NotificationCenter.default.post(name: NSNotification.Name("isLoggedIn"), object: nil)
+      self.isLoggedIn.toggle()
     }
   }
 }

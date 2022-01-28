@@ -7,15 +7,15 @@ import SwiftUI
 import Firebase
 
 struct RegistrationView: View {
+  @State var status = false
+  
   @State private var name = ""
   @State private var email = ""
   @State private var password = ""
   @State private var rePassword = ""
   
-  @State var status = false
-  
-  @State var alert = false
-  @State var error = ""
+  @State private var showAlert = false
+  @State private var errorText = ""
   
   var body: some View {
     ZStack {
@@ -34,7 +34,7 @@ struct RegistrationView: View {
             Image(systemName: "person.fill")
               .foregroundColor(.gray)
             
-            TextField("UserName", text: self.$name)
+            TextField("UserName", text: $name)
           }
           .modifier(TextModifier())
           
@@ -42,7 +42,7 @@ struct RegistrationView: View {
             Image(systemName: "envelope.fill")
               .foregroundColor(.gray)
             
-            TextField("Email", text: self.$email)
+            TextField("Email", text: $email)
               .autocapitalization(.none)
           }
           .modifier(TextModifier())
@@ -51,7 +51,7 @@ struct RegistrationView: View {
             Image(systemName: "lock.fill")
               .foregroundColor(.gray)
             
-            SecureField("Password", text: self.$password)
+            SecureField("Password", text: $password)
           }
           .modifier(TextModifier())
           
@@ -59,7 +59,7 @@ struct RegistrationView: View {
             Image(systemName: "lock.fill")
               .foregroundColor(.gray)
             
-            SecureField("RePassword", text: self.$rePassword)
+            SecureField("RePassword", text: $rePassword)
           }
           .modifier(TextModifier())
           
@@ -76,17 +76,14 @@ struct RegistrationView: View {
           
         }.padding(.horizontal, 30)
       }
-      if alert { // TODO: remake with view modifier
-        ErrorView(showAlert: self.$alert, errorText: self.$error)
-      }
-    }
+    }.showBannerView(show: $showAlert, text: $errorText)
   }
   
   func register() {
-    Auth.auth().createUser(withEmail: self.email, password: self.password) { (res, error) in
-      if error != nil {
-        self.error = error?.localizedDescription as! String
-        self.alert.toggle()
+    Auth.auth().createUser(withEmail: email, password: password) { (res, error) in
+      if let error = error {
+        self.errorText = error.localizedDescription
+        self.showAlert.toggle()
         return
       }
       UserDefaults.standard.set(true, forKey: "status")

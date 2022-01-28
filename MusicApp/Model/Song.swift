@@ -6,7 +6,11 @@
 import Foundation
 
 struct Song: Identifiable, Codable {
-  let id: String = UUID().uuidString
+  var id: Int {
+    return trackId
+  }
+  
+  let trackId: Int
   var trackViewUrl: String
   var trackName: String
   var artworkUrl100: String

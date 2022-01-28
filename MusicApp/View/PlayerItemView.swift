@@ -16,7 +16,7 @@ struct PlayerItemView: View {
   @State var isDownloaded = false
   @State var showSheet = false
   
-  @ObservedObject var songsViewModel = SongsViewModel()
+  @ObservedObject private var viewModel = FirebaseService()
   
   init(song: Song, player: Player) {
     self.song = song
@@ -75,8 +75,8 @@ struct PlayerItemView: View {
             .foregroundColor(.gray)
             .padding()
             .onTapGesture {
-              self.songsViewModel.addToMyMusic(song: song)
-              self.isDownloaded = true
+              viewModel.addToMyMusic(song: song)
+              isDownloaded = true
             }
         }
         
